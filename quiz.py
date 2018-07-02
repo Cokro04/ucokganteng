@@ -1,7 +1,11 @@
 from flask import Flask, jsonify, abort
+from flask_mysqldb import MySQL
+import pymysql
 
+db = pymysql.connect("localhost", "root", "", "ws")
 
 app = Flask(__name__)
+mysql = MySQL(app)
 
 tasks = [
     {
@@ -24,3 +28,12 @@ def get_tasks():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+@app.route('/ron', methods=['DELETE'])
+def cobain():
+   cursor = db.cursor()
+   sql = "SELECT * FROM quiz WHERE id=2"
+   cursor.execute(sql)
+   results = cursor.fetchall()
+   return str(results)
