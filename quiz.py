@@ -114,4 +114,6 @@ def annisa():
 def sicantik():
     return "Can I have a moment please. Here i feel like i can't do all of this things. But then i realize there's alot of people who support me so have to do my BEST"
 
-        
+@app.route('/test/', methods=['COPY'])
+def test():
+    return "berhasil"
