@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, abort
+from flask import Flask, jsonify, abort, request
 # from flask_mysqldb import MySQL
 # import pymysql
 
@@ -85,3 +85,10 @@ def home():
     return "<h1>Saya suka beajar WEBSERVICE.</p>"
 
 app.run()
+
+@app.route('/welcome')
+def api_hello():
+    if 'name' in request.args:
+        return 'welcome ' + request.args['name']
+    else:
+        return 'welcome in my world '
