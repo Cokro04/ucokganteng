@@ -26,8 +26,6 @@ tasks = [
 def get_tasks():
     return jsonify({'tasks': tasks})
 
-if __name__ == '__main__':
-    app.run(debug=True)
 
 
 @app.route('/ron', methods=['DELETE'])
@@ -37,3 +35,11 @@ def cobain():
    cursor.execute(sql)
    results = cursor.fetchall()
    return str(results)
+
+@app.route('/hello', methods=['VIEW'])
+def hello():
+    return "Hello World"
+
+    
+if __name__ == '__main__':
+    app.run(debug=True)
