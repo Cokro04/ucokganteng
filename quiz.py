@@ -73,6 +73,10 @@ def bisa():
 def haiii():
     return "wakwakkk"
 
+@app.route('/andi/', methods=['PATCH'])
+def aslam():
+    return "data akan muncul di sini"    
+
 @app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['GET'])
 def get_task(task_id):
     task = [task for task in tasks if task['id'] == task_id]
