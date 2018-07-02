@@ -31,13 +31,13 @@ def get_tasks():
 
 
 
-@app.route('/ron', methods=['DELETE'])
-def cobain():
-   cursor = db.cursor()
-   sql = "SELECT * FROM quiz WHERE id=2"
-   cursor.execute(sql)
-   results = cursor.fetchall()
-   return str(results)
+# @app.route('/ron', methods=['DELETE'])
+# def cobain():
+#    cursor = db.cursor()
+#    sql = "SELECT * FROM quiz WHERE id=2"
+#    cursor.execute(sql)
+#    results = cursor.fetchall()
+#    return str(results)
 
 @app.route('/hello', methods=['VIEW'])
 def hello():
@@ -50,6 +50,13 @@ def bisa():
   cursor.execute(sql)
   results = cursor.fetchall()
   return str(results)
+
+@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['GET'])
+def get_task(task_id):
+    task = [task for task in tasks if task['id'] == task_id]
+    if len(task) == 0:
+        abort(404)
+    return jsonify({'task': task[0]})
     
 if __name__ == '__main__':
     app.run(debug=True)
