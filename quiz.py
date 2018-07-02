@@ -9,6 +9,24 @@ from flask import Flask, jsonify, abort
 app = Flask(__name__)
 app.config["DEBUG"] = True
 # mysql = MySQL(app)
+empDB=[
+ {
+ 'id':'1',
+ 'name':'Saravanan S',
+ 'title':'Technical Leader'
+ },
+ {
+ 'id':'2',
+ 'name':'Rajkumar P',
+ 'title':'Sr Software Engineer'
+ }
+ ]
+
+
+@app.route('/empdb/employee/<empId>',methods=['GET'])
+def getEmp(empId):
+    usr = [ emp for emp in empDB if (emp['id'] == empId) ] 
+    return jsonify({'emp':usr})
 
 tasks = [
     {
@@ -57,7 +75,7 @@ def get_task(task_id):
     if len(task) == 0:
         abort(404)
     return jsonify({'task': task[0]})
-    
+
 if __name__ == '__main__':
     app.run(debug=True)
 
