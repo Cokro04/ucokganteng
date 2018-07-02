@@ -94,6 +94,10 @@ def home():
 
 app.run()
 
+@app.route('/cahyani/', methods=['GET'])
+def cahya():
+	return "<h1>hai gais.</p>"
+	
 @app.route('/welcome')
 def api_hello():
     if 'name' in request.args:
