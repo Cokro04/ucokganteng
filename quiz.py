@@ -1,13 +1,14 @@
 from flask import Flask, jsonify, abort
-from flask_mysqldb import MySQL
-import pymysql
+# from flask_mysqldb import MySQL
+# import pymysql
 
-db = pymysql.connect("localhost", "root", "", "ws")
-dbb = pymysql.connect("localhost", "root", "", "affiliasicitedby")
+# db = pymysql.connect("localhost", "root", "", "ws")
+# dbb = pymysql.connect("localhost", "root", "", "affiliasicitedby")
 
 
 app = Flask(__name__)
-mysql = MySQL(app)
+app.config["DEBUG"] = True
+# mysql = MySQL(app)
 
 tasks = [
     {
@@ -52,3 +53,10 @@ def bisa():
     
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+@app.route('/roza/', methods=['GET'])
+def home():
+    return "<h1>Saya suka beajar WEBSERVICE.</p>"
+
+app.run()
