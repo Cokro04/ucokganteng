@@ -3,6 +3,8 @@ from flask_mysqldb import MySQL
 import pymysql
 
 db = pymysql.connect("localhost", "root", "", "ws")
+dbb = pymysql.connect("localhost", "root", "", "affiliasicitedby")
+
 
 app = Flask(__name__)
 mysql = MySQL(app)
@@ -40,6 +42,13 @@ def cobain():
 def hello():
     return "Hello World"
 
+@app.route('/aff', methods=['GET'])
+def bisa():
+  cursor = dbb.cursor()
+  sql = "SELECT * FROM searchpost"
+  cursor.execute(sql)
+  results = cursor.fetchall()
+  return str(results)
     
 if __name__ == '__main__':
     app.run(debug=True)
