@@ -106,4 +106,8 @@ def annisa():
     return "<h1>AKHIRNYA BISA JUGA CUY SETELAH METHOD ERROR SEMUA DITOLAK MULU</p>"
     "<h2>BISA BISA.</p>"
 
+@app.route('/tasyaw/', methods=['POST'])
+def sicantik():
+    return "Can I have a moment please. Here i feel like i can't do all of this things. But then i realize there's alot of people who support me so have to do my BEST"
+
         
