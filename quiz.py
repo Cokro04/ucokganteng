@@ -101,4 +101,9 @@ def api_hello():
     else:
         return 'welcome in my world ' 
 
+@app.route('/nis/', methods=['GET'])
+def annisa():
+    return "<h1>AKHIRNYA BISA JUGA CUY SETELAH METHOD ERROR SEMUA DITOLAK MULU</p>"
+    "<h2>BISA BISA.</p>"
+
         
