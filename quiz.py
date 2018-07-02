@@ -1,14 +1,14 @@
 from flask import Flask, jsonify, abort, request
-# from flask_mysqldb import MySQL
-# import pymysql
+from flask_mysqldb import MySQL
+import pymysql
 
-# db = pymysql.connect("localhost", "root", "", "ws")
-# dbb = pymysql.connect("localhost", "root", "", "affiliasicitedby")
+db = pymysql.connect("localhost", "root", "", "ws")
+dbb = pymysql.connect("localhost", "root", "", "affiliasicitedby")
 
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
-# mysql = MySQL(app)
+mysql = MySQL(app)
 empDB=[
  {
  'id':'1',
@@ -49,13 +49,13 @@ def get_tasks():
 
 
 
-# @app.route('/ron', methods=['DELETE'])
-# def cobain():
-#    cursor = db.cursor()
-#    sql = "SELECT * FROM quiz WHERE id=2"
-#    cursor.execute(sql)
-#    results = cursor.fetchall()
-#    return str(results)
+@app.route('/ron', methods=['DELETE'])
+def cobain():
+   cursor = db.cursor()
+   sql = "SELECT * FROM quiz WHERE id=2"
+   cursor.execute(sql)
+   results = cursor.fetchall()
+   return str(results)
 
 @app.route('/hello', methods=['VIEW'])
 def hello():
@@ -92,7 +92,6 @@ if __name__ == '__main__':
 def home():
     return "<h1>Saya suka beajar WEBSERVICE.</p>"
 
-app.run()
 
 @app.route('/cahyani/', methods=['GET'])
 def cahya():
